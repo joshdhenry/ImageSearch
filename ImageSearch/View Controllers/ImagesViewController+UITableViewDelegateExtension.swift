@@ -35,6 +35,15 @@ extension ImagesViewController: UITableViewDelegate {
         let didScrollToEnd = indexPath.row + 1 == imageData.count
         if didScrollToEnd {
             print("Reached the end of results. Load more results...")
+            FlickrAPIService.fetchImages(page: 2, query: query, completion: {(fetchSuccessful, fetchedImages) in
+                self.imageData.append(contentsOf: fetchedImages)
+                
+                //Update the table view on the main thread
+                DispatchQueue.main.async {
+                    self.imagesTableView.reloadData()
+                }
+            })
+            
         }
     }
 }

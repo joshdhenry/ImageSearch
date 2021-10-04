@@ -17,7 +17,7 @@ class ImagesViewController: UIViewController, UISearchBarDelegate {
     var selectedImage: UIImage!
     var rowCompletions = [Int: Bool]()
     var didReload = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +28,7 @@ class ImagesViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search button clicked. Search for " + query)
-        
+        imagesTableView.setContentOffset(.zero, animated: true)
         FlickrAPIService.fetchImages(page: 1, query: query, completion: {(fetchSuccessful, fetchedImages) in
             self.imageData = fetchedImages
             

@@ -10,9 +10,10 @@ import Foundation
 class FlickrAPIService {
     class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrURLs])->()) {
         print("Fetching images: ", query)
+        print("Page ", page)
         
         // TODO: Obscure api key
-        let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1"
+        let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1&page=" + String(page)
         let session = URLSession.shared
 
         let dataTask = session.dataTask(with: NSURL(string :flickrURL)! as URL) { (data, response, error) in
