@@ -13,7 +13,6 @@ extension ImagesViewController: UITableViewDelegate {
         if segue.identifier == "imageSegue" {
             let secondViewController =  segue.destination as! ImageViewController
             secondViewController.newImage = selectedImage
-            secondViewController.newText = "Can you see?"
         }
     }
     
@@ -33,6 +32,7 @@ extension ImagesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let didScrollToEnd = indexPath.row + 1 == imageData.count
+        
         if didScrollToEnd {
             print("Reached the end of results. Load more results...")
             FlickrAPIService.fetchImages(page: 2, query: query, completion: {(fetchSuccessful, fetchedImages) in

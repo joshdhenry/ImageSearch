@@ -21,7 +21,6 @@ class FlickrAPIService {
                 print("json error: \(error.localizedDescription)")
                 return
             } else if let data = data {
-//                let result = String(data: data, encoding: .utf8)
                 do {
                     let decoder = JSONDecoder()
                     let flickrPhotos = try decoder.decode(FlickrImageResult.self, from: data)

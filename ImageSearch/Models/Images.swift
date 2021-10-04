@@ -26,9 +26,4 @@ struct FlickrURLs: Codable {
     let secret: String
     let server: String
     let farm: Int
-    // let title: String
-    // If needed, camel-case and use CodingKeys enum
-    //let ispublic: Int
-    //let isfriend: Int
-    //let isfamily: Int
 }
