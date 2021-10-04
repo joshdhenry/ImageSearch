@@ -21,6 +21,7 @@
 		03B61C1B27095D3300056F5F /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C1A27095D3300056F5F /* ImageTableViewCell.swift */; };
 		03B61C1F27098F7600056F5F /* ImagesViewController+UITableViewDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C1E27098F7600056F5F /* ImagesViewController+UITableViewDataSourceExtension.swift */; };
 		03B61C212709903D00056F5F /* ImagesViewController+UITableViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C202709903D00056F5F /* ImagesViewController+UITableViewDelegateExtension.swift */; };
+		03B61C23270A6D6600056F5F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C22270A6D6600056F5F /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		03B61C1A27095D3300056F5F /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		03B61C1E27098F7600056F5F /* ImagesViewController+UITableViewDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImagesViewController+UITableViewDataSourceExtension.swift"; sourceTree = "<group>"; };
 		03B61C202709903D00056F5F /* ImagesViewController+UITableViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImagesViewController+UITableViewDelegateExtension.swift"; sourceTree = "<group>"; };
+		03B61C22270A6D6600056F5F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				03B61BE32708F57700056F5F /* ImagesViewController.swift */,
 				03B61C1E27098F7600056F5F /* ImagesViewController+UITableViewDataSourceExtension.swift */,
 				03B61C202709903D00056F5F /* ImagesViewController+UITableViewDelegateExtension.swift */,
+				03B61C22270A6D6600056F5F /* ImageViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B61BE42708F57700056F5F /* ImagesViewController.swift in Sources */,
+				03B61C23270A6D6600056F5F /* ImageViewController.swift in Sources */,
 				03B61C1327091E4600056F5F /* FlickrApiService.swift in Sources */,
 				03B61C102709195D00056F5F /* Images.swift in Sources */,
 				03B61C212709903D00056F5F /* ImagesViewController+UITableViewDelegateExtension.swift in Sources */,

@@ -8,8 +8,29 @@
 import Foundation
 import UIKit
 
-extension ImagesViewController: UITableViewDelegate {
+extension ImagesViewController: UITableViewDelegate {    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("In here")
+        if segue.identifier == "imageSegue" {
+            print("In there")
+
+            let secondViewController =  segue.destination as! ImageViewController
+            secondViewController.newImage = selectedImage
+            secondViewController.newText = "Can you see?"
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected row ", indexPath)
         
+        guard let cell = tableView.cellForRow(at: indexPath) as? ImageTableViewCell
+        else{
+            return
+        }
+        
+        selectedImage = cell.imageImageView.image
     }
 }
+
+

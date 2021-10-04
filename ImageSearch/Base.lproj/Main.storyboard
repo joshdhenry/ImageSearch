@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JUA-L1-Zlr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Images View Controller-->
+        <!--Flickr Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ImagesViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-Bd-vug">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" rowHeight="180" id="S2r-dj-N1l" customClass="ImageTableViewCell" customModule="ImageSearch" customModuleProvider="target">
@@ -50,12 +50,13 @@
                                         <connections>
                                             <outlet property="imageImageView" destination="jTE-Ve-Td0" id="JOP-cI-QhS"/>
                                             <outlet property="imageLabel" destination="qnW-5j-1Mh" id="ZeE-5t-Stv"/>
+                                            <segue destination="Ckj-rB-hZs" kind="presentation" identifier="imageSegue" id="yia-U8-nW8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="i2x-xm-lgF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="yoK-KE-iJ1"/>
                                 </constraints>
@@ -74,12 +75,68 @@
                             <constraint firstItem="kpu-Bd-vug" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xza-ww-e9F"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Flickr Search" id="TnE-ll-Up2"/>
                     <connections>
                         <outlet property="imageSearchBar" destination="i2x-xm-lgF" id="H8J-xd-0QC"/>
                         <outlet property="imagesTableView" destination="kpu-Bd-vug" id="tqD-86-z4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="QoG-5O-8kg">
+            <objects>
+                <viewController storyboardIdentifier="sbPopUpId" id="Ckj-rB-hZs" customClass="ImageViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qcl-zB-yG1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-g3-wXh">
+                                <rect key="frame" x="186" y="97" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-qH-Dbu">
+                                <rect key="frame" x="85" y="384" width="244" height="74"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i2B-6w-sKQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i2B-6w-sKQ" firstAttribute="bottom" secondItem="XsW-qH-Dbu" secondAttribute="bottom" constant="350" id="CuL-I8-9u5"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerY" secondItem="Qcl-zB-yG1" secondAttribute="centerY" id="DPq-dX-ZSM"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerX" secondItem="Qcl-zB-yG1" secondAttribute="centerX" id="J1B-re-XAC"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="leading" secondItem="i2B-6w-sKQ" secondAttribute="leading" constant="85" id="hoK-gG-eW1"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerX" secondItem="3dO-g3-wXh" secondAttribute="centerX" id="kej-Qm-Ma3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ImageImageView" destination="XsW-qH-Dbu" id="REw-4u-riF"/>
+                        <outlet property="imageLabel" destination="3dO-g3-wXh" id="duT-71-b6P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRd-N4-Ztb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724.6376811594205" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="68J-NN-LHV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JUA-L1-Zlr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5o9-UF-73n">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="K2W-dB-Xc7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RbM-cR-l8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>

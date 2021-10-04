@@ -14,6 +14,7 @@ class ImagesViewController: UIViewController, UISearchBarDelegate {
     
     var imageData = [FlickrURLs]()
     var query: String = ""
+    var selectedImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class ImagesViewController: UIViewController, UISearchBarDelegate {
         
         FlickrAPIService.fetchImages(page: 1, query: query, completion: {(fetchSuccessful, fetchedImages) in
             self.imageData = fetchedImages
+            
             //Update the table view on the main thread
             DispatchQueue.main.async {
                 self.imagesTableView.reloadData()

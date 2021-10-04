@@ -34,6 +34,7 @@ extension ImagesViewController: UITableViewDataSource {
                         cell.imageLabel.text = self.imageData[indexPath.row].id
                         print(data)
                         cell.imageImageView.image = UIImage(data: data)
+//                        self.imagesTableView.reloadData()
                     }
                 }
                 
