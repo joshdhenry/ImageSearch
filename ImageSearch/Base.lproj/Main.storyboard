@@ -93,24 +93,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-g3-wXh">
-                                <rect key="frame" x="186" y="97" width="39" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-g3-wXh">
+                                <rect key="frame" x="187.5" y="0.0" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="K1o-ZN-PlJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-qH-Dbu">
-                                <rect key="frame" x="85" y="384" width="244" height="74"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="788"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2B-6w-sKQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i2B-6w-sKQ" firstAttribute="bottom" secondItem="XsW-qH-Dbu" secondAttribute="bottom" constant="350" id="CuL-I8-9u5"/>
-                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerY" secondItem="Qcl-zB-yG1" secondAttribute="centerY" id="DPq-dX-ZSM"/>
-                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerX" secondItem="Qcl-zB-yG1" secondAttribute="centerX" id="J1B-re-XAC"/>
-                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="leading" secondItem="i2B-6w-sKQ" secondAttribute="leading" constant="85" id="hoK-gG-eW1"/>
-                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="centerX" secondItem="3dO-g3-wXh" secondAttribute="centerX" id="kej-Qm-Ma3"/>
+                            <constraint firstItem="3dO-g3-wXh" firstAttribute="centerX" secondItem="Qcl-zB-yG1" secondAttribute="centerX" id="2Lz-Mq-qWk"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="leading" secondItem="i2B-6w-sKQ" secondAttribute="leading" id="9ep-MB-Heb"/>
+                            <constraint firstItem="3dO-g3-wXh" firstAttribute="top" secondItem="i2B-6w-sKQ" secondAttribute="top" id="Of8-lq-LTh"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="bottom" secondItem="i2B-6w-sKQ" secondAttribute="bottom" id="dF0-hG-OrW"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="trailing" secondItem="i2B-6w-sKQ" secondAttribute="trailing" id="kff-7I-iBQ"/>
+                            <constraint firstItem="XsW-qH-Dbu" firstAttribute="top" secondItem="i2B-6w-sKQ" secondAttribute="top" constant="20" id="qAS-Vw-Khb"/>
                         </constraints>
                     </view>
                     <connections>
