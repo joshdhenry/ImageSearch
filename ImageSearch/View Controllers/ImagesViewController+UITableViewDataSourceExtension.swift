@@ -25,7 +25,6 @@ extension ImagesViewController: UITableViewDataSource {
                     guard let data = data, error == nil else { return }
                     
                     DispatchQueue.main.async { /// execute on main thread
-                        cell.imageLabel.text = self.imageData[indexPath.row].id
                         cell.imageImageView.image = UIImage(data: data)
 //                        self.imagesTableView.reloadData()
                         self.rowCompletions[indexPath.row] = true

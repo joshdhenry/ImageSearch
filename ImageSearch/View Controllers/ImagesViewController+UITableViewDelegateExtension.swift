@@ -18,7 +18,7 @@ extension ImagesViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row ", indexPath)
+        print("Selected row ", indexPath.row)
         
         guard let cell = tableView.cellForRow(at: indexPath) as? ImageTableViewCell
         else{

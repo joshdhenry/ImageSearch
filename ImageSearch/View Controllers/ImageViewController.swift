@@ -15,9 +15,6 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Now setting image vc to new props")
-        print(newImage)
-        
         ImageImageView.image = newImage
     }
 

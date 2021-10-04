@@ -24,7 +24,7 @@ class FlickrAPIService {
                 do {
                     let decoder = JSONDecoder()
                     let flickrPhotos = try decoder.decode(FlickrImageResult.self, from: data)
-                    print(flickrPhotos)
+
                     completion(true, flickrPhotos.photos!.photo)
                 } catch {
                     dump(data)

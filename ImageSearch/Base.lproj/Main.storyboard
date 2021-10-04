@@ -30,17 +30,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jTE-Ve-Td0">
                                                     <rect key="frame" x="87" y="26" width="240" height="128"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnW-5j-1Mh">
-                                                    <rect key="frame" x="186" y="159" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="qnW-5j-1Mh" secondAttribute="bottom" id="14d-qM-Chy"/>
-                                                <constraint firstItem="qnW-5j-1Mh" firstAttribute="centerX" secondItem="dLu-Xe-grz" secondAttribute="centerX" id="14w-Q9-BPk"/>
-                                                <constraint firstItem="qnW-5j-1Mh" firstAttribute="top" secondItem="jTE-Ve-Td0" secondAttribute="bottom" constant="5" id="DLO-xA-3lM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jTE-Ve-Td0" secondAttribute="trailing" constant="67" id="GDt-LZ-ZA8"/>
                                                 <constraint firstItem="jTE-Ve-Td0" firstAttribute="top" secondItem="dLu-Xe-grz" secondAttribute="topMargin" constant="15" id="QVC-RL-oTd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="jTE-Ve-Td0" secondAttribute="bottom" constant="15" id="oQW-jk-OXF"/>
@@ -49,7 +40,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageImageView" destination="jTE-Ve-Td0" id="JOP-cI-QhS"/>
-                                            <outlet property="imageLabel" destination="qnW-5j-1Mh" id="ZeE-5t-Stv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
