@@ -10,10 +10,8 @@ import Foundation
 class FlickrAPIService {
     class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrURLs])->()) {
         print("Fetching images: ", query)
-        //        let flickrURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=vegetables&tagmode=any&format=json&jsoncallback=?"
-
-        //        let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=6343a66eb46c461c91934e8a7a981056&gallery_id=66911286-72157647277042064&format=json&nojsoncallback=1"
-                
+        
+        // TODO: Obscure api key
         let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1"
         let session = URLSession.shared
 
@@ -26,6 +24,7 @@ class FlickrAPIService {
                 do {
                     let decoder = JSONDecoder()
                     let flickrPhotos = try decoder.decode(FlickrImageResult.self, from: data)
+                    print(flickrPhotos)
                     completion(true, flickrPhotos.photos!.photo)
                 } catch {
                     dump(data)

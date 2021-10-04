@@ -11,9 +11,6 @@ import UIKit
 extension ImagesViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "imageSegue" {
-            print("In there")
-            print(selectedImage)
-
             let secondViewController =  segue.destination as! ImageViewController
             secondViewController.newImage = selectedImage
             secondViewController.newText = "Can you see?"
@@ -29,9 +26,16 @@ extension ImagesViewController: UITableViewDelegate {
             return
         }
         
-        print("Setting selected image")
-        print(cell.imageImageView.image)
         selectedImage = cell.imageImageView.image
+        
+        performSegue(withIdentifier: "imageSegue", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let didScrollToEnd = indexPath.row + 1 == imageData.count
+        if didScrollToEnd {
+            print("Reached the end of results. Load more results...")
+        }
     }
 }
 

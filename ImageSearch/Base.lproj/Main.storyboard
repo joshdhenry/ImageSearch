@@ -50,7 +50,6 @@
                                         <connections>
                                             <outlet property="imageImageView" destination="jTE-Ve-Td0" id="JOP-cI-QhS"/>
                                             <outlet property="imageLabel" destination="qnW-5j-1Mh" id="ZeE-5t-Stv"/>
-                                            <segue destination="Ckj-rB-hZs" kind="presentation" identifier="imageSegue" id="yia-U8-nW8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,6 +78,7 @@
                     <connections>
                         <outlet property="imageSearchBar" destination="i2x-xm-lgF" id="H8J-xd-0QC"/>
                         <outlet property="imagesTableView" destination="kpu-Bd-vug" id="tqD-86-z4H"/>
+                        <segue destination="Ckj-rB-hZs" kind="presentation" identifier="imageSegue" id="Arh-dY-it2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
