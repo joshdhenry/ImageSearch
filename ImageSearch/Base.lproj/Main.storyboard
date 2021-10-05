@@ -97,7 +97,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ImageImageView" destination="XsW-qH-Dbu" id="REw-4u-riF"/>
+                        <outlet property="imageImageView" destination="XsW-qH-Dbu" id="REw-4u-riF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRd-N4-Ztb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

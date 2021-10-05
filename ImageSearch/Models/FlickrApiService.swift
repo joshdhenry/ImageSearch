@@ -8,17 +8,41 @@
 import Foundation
 
 class FlickrAPIService {
-    class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrURLs])->()) {
+    class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrURLs])->()) throws {
         print("Fetching images: ", query)
         print("Page ", page)
         
-        // TODO: Obscure api key
+//        guard let isQuery = query != "" else {
+//            throw ErrorTypes.apiKeyError
+//        }
+        
+        guard query != "" else {
+            throw ErrorTypes.queryMissingError
+        }
+                
+        var keys: NSDictionary = NSDictionary()
+    
+        //Try to set the keys dictionary
+        do {
+            keys = try setAPIKeys()
+        }
+        catch {
+            throw ErrorTypes.apiKeyPListError
+        }
+        
+        //Attempt to load the AlaskaAirlinesBasicAuthorizationString from the keys dictionary
+        guard let apiKey: String = keys["FlickrApiKey"] as? String else {
+            throw ErrorTypes.apiKeyError
+        }
+        
+        print(apiKey)
+        
         let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1&page=" + String(page)
         let session = URLSession.shared
 
         let dataTask = session.dataTask(with: NSURL(string :flickrURL)! as URL) { (data, response, error) in
             if let error = error {
-                print("json error: \(error.localizedDescription)")
+                print("Error: \(error.localizedDescription)")
                 return
             } else if let data = data {
                 do {
@@ -28,7 +52,7 @@ class FlickrAPIService {
                     completion(true, flickrPhotos.photos!.photo)
                 } catch {
                     dump(data)
-                    print("json error: \(error)")
+                    print("Error: \(error)")
                 }
             }
         }
@@ -39,5 +63,15 @@ class FlickrAPIService {
         let url = "https://live.staticflickr.com/" + server + "/" + id + "_" + secret + "_m.jpg"
         
         return url
+    }
+    
+    //Load the API keys from ApiKeys.plist
+    class func setAPIKeys() throws -> NSDictionary {
+        if let path = Bundle.main.path(forResource: "ApiKeys", ofType: "plist") {
+            return NSDictionary(contentsOfFile: path)!
+        }
+        else {
+            throw ErrorTypes.apiKeyPListError
+        }
     }
 }

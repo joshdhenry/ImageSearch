@@ -9,16 +9,16 @@ import UIKit
 
 class ImageViewController: UIViewController {
     // TODO: Rename this
-    @IBOutlet weak var ImageImageView: UIImageView!
+    @IBOutlet weak var imageImageView: UIImageView!
     
     var newImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ImageImageView.enableZoom()
+        imageImageView.enableZoom()
         
-        ImageImageView.image = newImage
+        imageImageView.image = newImage
     }
 
 }

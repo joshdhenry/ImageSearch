@@ -24,6 +24,8 @@
 		03B61C23270A6D6600056F5F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C22270A6D6600056F5F /* ImageViewController.swift */; };
 		03B61C25270AB09800056F5F /* ImagesViewController+UISearchBarDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C24270AB09800056F5F /* ImagesViewController+UISearchBarDelegateExtension.swift */; };
 		03B61C27270AB96600056F5F /* UIImageView+EnableZoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C26270AB96600056F5F /* UIImageView+EnableZoomExtension.swift */; };
+		03B61C29270BD9F800056F5F /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B61C28270BD9F800056F5F /* ErrorTypes.swift */; };
+		03B61C2B270BDB0700056F5F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B61C2A270BDB0700056F5F /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		03B61C22270A6D6600056F5F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		03B61C24270AB09800056F5F /* ImagesViewController+UISearchBarDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImagesViewController+UISearchBarDelegateExtension.swift"; sourceTree = "<group>"; };
 		03B61C26270AB96600056F5F /* UIImageView+EnableZoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+EnableZoomExtension.swift"; sourceTree = "<group>"; };
+		03B61C28270BD9F800056F5F /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
+		03B61C2A270BDB0700056F5F /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				03B61BE82708F57800056F5F /* Assets.xcassets */,
 				03B61BEA2708F57800056F5F /* LaunchScreen.storyboard */,
 				03B61BED2708F57800056F5F /* Info.plist */,
+				03B61C2A270BDB0700056F5F /* ApiKeys.plist */,
 			);
 			path = ImageSearch;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				03B61C0F2709195D00056F5F /* Images.swift */,
 				03B61C1227091E4600056F5F /* FlickrApiService.swift */,
 				03B61C26270AB96600056F5F /* UIImageView+EnableZoomExtension.swift */,
+				03B61C28270BD9F800056F5F /* ErrorTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			files = (
 				03B61BEC2708F57800056F5F /* LaunchScreen.storyboard in Resources */,
 				03B61BE92708F57800056F5F /* Assets.xcassets in Resources */,
+				03B61C2B270BDB0700056F5F /* ApiKeys.plist in Resources */,
 				03B61BE72708F57700056F5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +323,7 @@
 				03B61BE02708F57700056F5F /* AppDelegate.swift in Sources */,
 				03B61C27270AB96600056F5F /* UIImageView+EnableZoomExtension.swift in Sources */,
 				03B61BE22708F57700056F5F /* SceneDelegate.swift in Sources */,
+				03B61C29270BD9F800056F5F /* ErrorTypes.swift in Sources */,
 				03B61C1F27098F7600056F5F /* ImagesViewController+UITableViewDataSourceExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
