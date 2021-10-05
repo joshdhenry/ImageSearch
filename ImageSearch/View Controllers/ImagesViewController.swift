@@ -9,14 +9,15 @@ import UIKit
 
 class ImagesViewController: UIViewController {
     
-    @IBOutlet var imagesTableView: UITableView!
     @IBOutlet weak var imageSearchBar: UISearchBar!
+    @IBOutlet var imagesTableView: UITableView!
     
+    var didReload: Bool = false
     var imageData = [FlickrURLs]()
+    var page: Int = 1
     var query: String = ""
-    var selectedImage: UIImage!
     var rowCompletions = [Int: Bool]()
-    var didReload = false
+    var selectedImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,9 +26,7 @@ extension ImagesViewController: UITableViewDataSource {
                     
                     DispatchQueue.main.async { /// execute on main thread
                         cell.imageImageView.image = UIImage(data: data)
-//                        self.imagesTableView.reloadData()
                         self.rowCompletions[indexPath.row] = true
-//                        print(self.rowCompletions)
                         if (self.rowCompletions.count > 7 && self.didReload == false) {
                             self.didReload = true
                             self.imagesTableView.reloadData()
