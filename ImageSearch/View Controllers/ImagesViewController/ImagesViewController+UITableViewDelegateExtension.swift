@@ -21,7 +21,7 @@ extension ImagesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ImageTableViewCell
-        else{
+        else {
             return
         }
         
@@ -46,27 +46,18 @@ extension ImagesViewController: UITableViewDelegate {
             })
             }
             catch ErrorTypes.apiKeyError {
-                showError(errorMessage: "Unable to load the API key.")
+                self.showAlert(message: "Unable to load the API key.")
             }
             catch ErrorTypes.apiKeyPListError {
-                showError(errorMessage: "Could not access ApiKeys.plist.")
+                self.showAlert(message: "Could not access ApiKeys.plist.")
             }
             catch ErrorTypes.queryMissingError {
-                showError(errorMessage: "Please enter a valid search term.")
+                self.showAlert(message: "Please enter a valid search term.")
             }
             catch {
-                showError(errorMessage: "An error has occurred.")
+                self.showAlert(message: "An error has occurred.")
             }
         }
-    }
-    
-    //Show an error UIAlert with an OK button and a custom error message
-    func showError(errorMessage: String) {
-        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: true, completion: nil)
     }
 }
 

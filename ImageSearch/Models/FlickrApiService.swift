@@ -8,14 +8,7 @@
 import Foundation
 
 class FlickrAPIService {
-    class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrURLs])->()) throws {
-        print("Fetching images: ", query)
-        print("Page ", page)
-        
-//        guard let isQuery = query != "" else {
-//            throw ErrorTypes.apiKeyError
-//        }
-        
+    class func fetchImages(page: Int, query: String, completion: @escaping (_ fetchSuccessful: Bool, _ fetchedImages: [FlickrImage])->()) throws {
         guard query != "" else {
             throw ErrorTypes.queryMissingError
         }
@@ -24,7 +17,7 @@ class FlickrAPIService {
     
         //Try to set the keys dictionary
         do {
-            keys = try setAPIKeys()
+            keys = try getAPIKeys()
         }
         catch {
             throw ErrorTypes.apiKeyPListError
@@ -34,12 +27,9 @@ class FlickrAPIService {
         guard let apiKey: String = keys["FlickrApiKey"] as? String else {
             throw ErrorTypes.apiKeyError
         }
-        
-        print(apiKey)
-        
+                
         let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1&page=" + String(page)
         let session = URLSession.shared
-
         let dataTask = session.dataTask(with: NSURL(string :flickrURL)! as URL) { (data, response, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -47,12 +37,11 @@ class FlickrAPIService {
             } else if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let flickrPhotos = try decoder.decode(FlickrImageResult.self, from: data)
+                    let flickrPhotos = try decoder.decode(FlickrImagesResponse.self, from: data)
 
                     completion(true, flickrPhotos.photos!.photo)
                 } catch {
-                    dump(data)
-                    print("Error: \(error)")
+                    print("Error: \(error.localizedDescription)")
                 }
             }
         }
@@ -66,7 +55,7 @@ class FlickrAPIService {
     }
     
     //Load the API keys from ApiKeys.plist
-    class func setAPIKeys() throws -> NSDictionary {
+    class func getAPIKeys() throws -> NSDictionary {
         if let path = Bundle.main.path(forResource: "ApiKeys", ofType: "plist") {
             return NSDictionary(contentsOfFile: path)!
         }

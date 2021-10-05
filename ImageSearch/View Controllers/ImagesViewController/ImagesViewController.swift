@@ -13,7 +13,7 @@ class ImagesViewController: UIViewController {
     @IBOutlet var imagesTableView: UITableView!
     
     var didReload: Bool = false
-    var imageData = [FlickrURLs]()
+    var imageData = [FlickrImage]()
     var page: Int = 1
     var query: String = ""
     var rowCompletions = [Int: Bool]()

@@ -8,7 +8,6 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    // TODO: Rename this
     @IBOutlet weak var imageImageView: UIImageView!
     
     var newImage: UIImage!

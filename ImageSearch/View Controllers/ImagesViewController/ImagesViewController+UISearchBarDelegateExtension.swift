@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 extension ImagesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        query = searchText
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {        
         //Dismiss keyboard
         self.view.endEditing(true)
@@ -20,27 +24,23 @@ extension ImagesViewController: UISearchBarDelegate {
         try FlickrAPIService.fetchImages(page: page, query: query, completion: {(fetchSuccessful, fetchedImages) in
             self.imageData = fetchedImages
             
-            //Update the table view on the main thread
+            //Update the table view UI on the main thread
             DispatchQueue.main.async {
                 self.imagesTableView.reloadData()
             }
         })
         }
         catch ErrorTypes.apiKeyError {
-            showError(errorMessage: "Unable to load the API key.")
+            self.showAlert(message: "Unable to load the API key.")
         }
         catch ErrorTypes.apiKeyPListError {
-            showError(errorMessage: "Could not access ApiKeys.plist.")
+            self.showAlert(message: "Could not access ApiKeys.plist.")
         }
         catch ErrorTypes.queryMissingError {
-            showError(errorMessage: "Please enter a valid search term.")
+            self.showAlert(message: "Please enter a valid search term.")
         }
         catch {
-            showError(errorMessage: "An error has occurred.")
+            self.showAlert(message: "An error has occurred.")
         }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        query = searchText
     }
 }
