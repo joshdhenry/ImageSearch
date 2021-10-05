@@ -15,7 +15,6 @@ class FlickrAPIService {
                 
         var keys: NSDictionary = NSDictionary()
     
-        //Try to set the keys dictionary
         do {
             keys = try getAPIKeys()
         }
@@ -28,7 +27,7 @@ class FlickrAPIService {
             throw ErrorTypes.apiKeyError
         }
                 
-        let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6343a66eb46c461c91934e8a7a981056&text=" + query + "&format=json&nojsoncallback=1&page=" + String(page)
+        let flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + apiKey + "&text=" + query + "&format=json&nojsoncallback=1&page=" + String(page)
         let session = URLSession.shared
         let dataTask = session.dataTask(with: NSURL(string :flickrURL)! as URL) { (data, response, error) in
             if let error = error {
